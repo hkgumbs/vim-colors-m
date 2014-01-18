@@ -98,8 +98,8 @@ hi Todo           guifg=#D7D7FF    guibg=bg    gui=none ctermfg=189    ctermbg=b
 
 "
 " minor groups
-hi StatusLine      guifg=fg      guibg=#D9D9D9    gui=none ctermfg=fg  ctermbg=bg cterm=none
-hi StatusLineNC    guifg=grey50  guibg=#D9D9D9    gui=none ctermfg=fg ctermbg=bg cterm=none
+hi StatusLine      guifg=fg      guibg=#D9D9D9    gui=none ctermfg=fg  ctermbg=blue cterm=none
+hi StatusLineNC    guifg=grey50  guibg=#D9D9D9    gui=none ctermfg=fg ctermbg=252 cterm=none
 hi TabLine         guifg=#F1F1F1 guibg=#545454    gui=none ctermfg=fg  ctermbg=bg cterm=none
 hi TabLineSel      guifg=#F1F1F1 guibg=#2C81FB    gui=none ctermfg=253 ctermbg=238 cterm=none
 hi TabLineFill     guifg=#F1F1F1 guibg=#181818    gui=none ctermfg=fg  ctermbg=bg cterm=none
