@@ -1,7 +1,7 @@
 " Vim Color File
 " Name:       pencil.vim
-" Version:    0.6
-" Maintainer: github.com/reedes github.com/mattly
+" Version:    0.7
+" Maintainer: github.com/hkgumbs
 " License:    The MIT License (MIT)
 
 " Original iA Writer colors, to use as a guide
@@ -37,14 +37,6 @@ endif
 
 let g:colors_name='pencil'
 
-if ! exists("g:pencil_higher_contrast_ui")
-  let g:pencil_higher_contrast_ui = 0
-endif
-
-if ! exists("g:pencil_neutral_headings")
-  let g:pencil_neutral_headings = 0
-endif
-
 " Colors
 let s:black           = { "gui": "#212121", "cterm": "0"   }
 let s:medium_gray     = { "gui": "#767676", "cterm": "243" }
@@ -53,17 +45,9 @@ let s:actual_white    = { "gui": "#FFFFFF", "cterm": "231" }
 let s:light_black     = { "gui": "#424242", "cterm": "8"   }
 let s:lighter_black   = { "gui": "#545454", "cterm": "240" }
 
-if g:pencil_higher_contrast_ui == 0
-  " darker shadow and whiter grays
-  let s:subtle_black  = { "gui": "#262626", "cterm": "235" }
-  let s:light_gray    = { "gui": "#D9D9D9", "cterm": "253" }
-  let s:lighter_gray  = { "gui": "#E5E6E6", "cterm": "254" }
-else
-  " lighter shadows and darker grays
-  let s:subtle_black  = { "gui": "#303030", "cterm": "236" }
-  let s:light_gray    = { "gui": "#B2B2B2", "cterm": "249" }
-  let s:lighter_gray  = { "gui": "#C6C6C6", "cterm": "251" }
-endif
+let s:subtle_black  = { "gui": "#303030", "cterm": "236" }
+let s:light_gray    = { "gui": "#B2B2B2", "cterm": "249" }
+let s:lighter_gray  = { "gui": "#C6C6C6", "cterm": "251" }
 
 let s:pink            = { "gui": "#fb007a", "cterm": "9"   }
 let s:dark_red        = { "gui": "#C30771", "cterm": "1"   }
@@ -86,39 +70,20 @@ let s:light_purple    = { "gui": "#6855DE", "cterm": "13"  }
 let s:yellow          = { "gui": "#F3E430", "cterm": "11"  }
 let s:dark_yellow     = { "gui": "#A89C14", "cterm": "3"   }
 
-if &background == "dark"
-  let s:bg              = s:black
-  let s:bg_subtle       = s:light_black
-  let s:bg_very_subtle  = s:subtle_black
-  let s:norm            = s:lighter_gray
-  let s:norm_subtle     = s:light_gray
-  let s:purple          = s:light_purple
-  let s:cyan            = s:light_cyan
-  let s:green           = s:light_green
-  let s:red             = s:light_red
-  let s:visual          = s:lighter_black
-else
-  let s:bg              = s:white
-  let s:bg_subtle       = s:light_gray
-  let s:bg_very_subtle  = s:lighter_gray
-  let s:norm            = s:light_black
-  let s:norm_subtle     = s:lighter_black
-  let s:purple          = s:dark_purple
-  let s:cyan            = s:dark_cyan
-  let s:green           = s:dark_green
-  let s:red             = s:dark_red
-  let s:visual          = s:light_blue
-endif
+let s:bg              = s:white
+let s:bg_subtle       = s:light_gray
+let s:bg_very_subtle  = s:lighter_gray
+let s:norm            = s:light_black
+let s:norm_subtle     = s:lighter_black
+let s:purple          = s:dark_purple
+let s:cyan            = s:dark_cyan
+let s:green           = s:dark_green
+let s:red             = s:dark_red
+let s:visual          = s:light_blue
 
-if g:pencil_neutral_headings == 1
-  let s:head_a         = s:norm
-  let s:head_b         = s:norm
-  let s:head_c         = s:norm
-else
-  let s:head_a         = s:dark_blue
-  let s:head_b         = s:blue
-  let s:head_c         = s:dark_cyan
-endif
+let s:head_a         = s:dark_blue
+let s:head_b         = s:blue
+let s:head_c         = s:dark_cyan
 
 " shamelessly stolen from hemisu: https://github.com/noahfrederick/vim-hemisu/
 function! s:h(group, style)
@@ -139,46 +104,6 @@ call s:h("Normal",        {"bg": s:bg, "fg": s:norm})
 call s:h("Cursor",        {"bg": s:blue, "fg": s:norm })
 call s:h("Comment",       {"fg": s:medium_gray, "gui": "italic"})
 
-call s:h("Constant",      {"fg": s:cyan})
-hi! link String           Constant
-hi! link Character        Constant
-hi! link Number           Constant
-hi! link Boolean          Constant
-hi! link Float            Constant
-
-call s:h("Identifier",    {"fg": s:dark_blue})
-hi! link Function         Identifier
-
-call s:h("Statement",     {"fg": s:green})
-hi! link Conditonal       Statement
-hi! link Repeat           Statement
-hi! link Label            Statement
-hi! link Operator         Statement
-hi! link Keyword          Statement
-hi! link Exception        Statement
-
-call s:h("PreProc",       {"fg": s:red})
-hi! link Include          PreProc
-hi! link Define           PreProc
-hi! link Macro            PreProc
-hi! link PreCondit        PreProc
-
-call s:h("Type",          {"fg": s:purple})
-hi! link StorageClass     Type
-hi! link Structure        Type
-hi! link Typedef          Type
-
-call s:h("Special",       {"fg": s:pink})
-hi! link SpecialChar      Special
-hi! link Tag              Special
-hi! link Delimiter        Special
-hi! link SpecialComment   Special
-hi! link Debug            Special
-
-call s:h("Underlined",    {"fg": s:norm, "gui": "underline", "cterm": "underline"})
-call s:h("Ignore",        {"fg": s:bg})
-call s:h("Error",         {"fg": s:actual_white, "bg": s:red, "cterm": "bold"})
-call s:h("Todo",          {"fg": s:actual_white, "bg": s:pink, "gui": "bold", "cterm": "bold"})
 
 " ui chrome ====================================================================
 " ordered according to `:help hitest.vim`
@@ -210,17 +135,10 @@ call s:h("DiffChange",    {"fg": s:dark_yellow})
 call s:h("DiffText",      {"fg": s:dark_blue})
 call s:h("SignColumn",    {"fg": s:light_green})
 " hi Conceal
-if has("gui_running")
-  call s:h("SpellBad",    {"gui": "underline", "sp": s:red})
-  call s:h("SpellCap",    {"gui": "underline", "sp": s:light_green})
-  call s:h("SpellRare",   {"gui": "underline", "sp": s:pink})
-  call s:h("SpellLocal",  {"gui": "underline", "sp": s:dark_green})
-else
-  call s:h("SpellBad",    {"cterm": "underline", "fg": s:red})
-  call s:h("SpellCap",    {"cterm": "underline", "fg": s:light_green})
-  call s:h("SpellRare",   {"cterm": "underline", "fg": s:pink})
-  call s:h("SpellLocal",  {"cterm": "underline", "fg": s:dark_green})
-endif
+call s:h("SpellBad",    {"cterm": "underline", "fg": s:red})
+call s:h("SpellCap",    {"cterm": "underline", "fg": s:light_green})
+call s:h("SpellRare",   {"cterm": "underline", "fg": s:pink})
+call s:h("SpellLocal",  {"cterm": "underline", "fg": s:dark_green})
 call s:h("Pmenu",         {"fg": s:norm, "bg": s:bg_subtle})
 call s:h("PmenuSel",      {"fg": s:norm, "bg": s:blue})
 call s:h("PmenuSbar",     {"fg": s:norm, "bg": s:bg_subtle})
@@ -235,79 +153,3 @@ call s:h("ColorColumn",   {"bg": s:bg_subtle})
 " remainder of syntax highlighting
 call s:h("MatchParen",    {"bg": s:bg_subtle, "fg": s:norm})
 call s:h("qfLineNr",      {"fg": s:medium_gray})
-
-" hi helpHyperTextJump guifg=#5FAFD7 ctermfg=74
-
-" HTML syntax
-hi! link htmlTag          Special
-hi! link htmlEndTag       htmlTag
-
-hi! link htmlTagName      KeyWord
-" html5 tags show up as htmlTagN
-hi! link htmlTagN         Keyword
-
-" HTML content
-call s:h("htmlItalic",    {"gui": "italic", "cterm": "bold"})
-call s:h("htmlBold",      {"gui": "bold", "cterm": "bold"})
-call s:h("htmlBoldItalic",{"gui": "bold,italic", "cterm": "bold"})
-call s:h("htmlH1",        {"fg": s:head_a, "gui": "bold,italic"})
-call s:h("htmlH2",        {"fg": s:head_a, "gui": "bold"})
-call s:h("htmlH3",        {"fg": s:head_b, "gui": "italic"})
-call s:h("htmlH4",        {"fg": s:head_b, "gui": "italic"})
-call s:h("htmlH5",        {"fg": s:head_c})
-call s:h("htmlH6",        {"fg": s:head_c})
-call s:h("htmlLink",      {"fg": s:blue, "gui": "underline", "cterm": "underline"})
-" hi htmlString     guifg=#87875f guibg=NONE gui=NONE        ctermfg=101 ctermbg=NONE cterm=NONE
-
-" tpope/vim-markdown
-call s:h("markdownBlockquote",          {"fg": s:medium_gray})
-call s:h("markdownCodeDelimiter",       {"fg": s:norm})
-call s:h("markdownH1",                  {"fg": s:head_a, "gui": "bold,italic"})
-call s:h("markdownH2",                  {"fg": s:head_a, "gui": "bold"})
-call s:h("markdownH3",                  {"fg": s:head_a, "gui": "italic"})
-call s:h("markdownH4",                  {"fg": s:head_a, "gui": "italic"})
-call s:h("markdownH5",                  {"fg": s:head_a})
-call s:h("markdownH6",                  {"fg": s:head_a})
-call s:h("markdownHeadingDelimiter",    {"fg": s:norm})
-call s:h("markdownHeadingRule",         {"fg": s:norm})
-call s:h("markdownId",                  {"fg": s:norm})
-call s:h("markdownIdDeclaration",       {"fg": s:norm_subtle})
-call s:h("markdownLinkDelimiter",       {"fg": s:medium_gray})
-call s:h("markdownLinkText",            {"fg": s:norm})
-call s:h("markdownLinkTextDelimiter",   {"fg": s:medium_gray})
-call s:h("markdownListMarker",          {"fg": s:norm})
-call s:h("markdownOrderedListMarker",   {"fg": s:norm})
-call s:h("markdownRule",                {"fg": s:norm})
-call s:h("markdownUrl",                 {"fg": s:medium_gray, "gui": "underline", "cterm": "underline"})
-call s:h("markdownUrlDelimiter",        {"fg": s:medium_gray})
-call s:h("markdownUrlTitle",            {"fg": s:norm})
-call s:h("markdownUrlTitleDelimiter",   {"fg": s:medium_gray})
-
-" plasticboy/vim-markdown
-call s:h("mkdBlockQuote",               {"fg": s:norm})
-call s:h("mkdCode",                     {"fg": s:norm})
-call s:h("mkdDelimiter",                {"fg": s:medium_gray})
-call s:h("mkdID",                       {"fg": s:norm})
-call s:h("mkdIndentCode",               {"fg": s:norm})
-call s:h("mkdLineContinue",             {"fg": s:norm})
-call s:h("mkdLink",                     {"fg": s:norm})
-call s:h("mkdLinkDef",                  {"fg": s:norm})
-call s:h("mkdListItem",                 {"fg": s:norm})
-call s:h("mkdNonListItemBlock",         {"fg": s:norm})
-call s:h("mkdRule",                     {"fg": s:norm})
-call s:h("mkdUrl",                      {"fg": s:medium_gray, "gui": "underline", "cterm": "underline"})
-
-" XML content
-hi! link xmlTag                     htmlTag
-hi! link xmlEndTag                  xmlTag
-hi! link xmlTagName                 htmlTagName
-
-" Signify, git-gutter
-hi link SignifySignAdd              LineNr
-hi link SignifySignDelete           LineNr
-hi link SignifySignChange           LineNr
-hi link GitGutterAdd                LineNr
-hi link GitGutterDelete             LineNr
-hi link GitGutterChange             LineNr
-hi link GitGutterChangeDelete       LineNr
-
