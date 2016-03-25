@@ -1,5 +1,5 @@
 " Vim Color File
-" Name:       pencil.vim
+" Name:       m.vim
 " Version:    0.7
 " Maintainer: github.com/hkgumbs
 " License:    The MIT License (MIT)
@@ -35,7 +35,7 @@ if exists('syntax on')
     syntax reset
 endif
 
-let g:colors_name='pencil'
+let g:colors_name='m'
 
 " Colors
 let s:black           = { "gui": "#212121", "cterm": "0"   }
