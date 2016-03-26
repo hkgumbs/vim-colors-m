@@ -45,28 +45,17 @@ let s:green           = s:dark
 let s:red             = s:dark
 let s:visual          = s:light_blue
 
-" shamelessly stolen from hemisu: https://github.com/noahfrederick/vim-hemisu/
 function! s:h(group, style)
   execute "highlight" a:group
-    \ "guifg="   (has_key(a:style, "fg")    ? a:style.fg.gui   : "NONE")
-    \ "guibg="   (has_key(a:style, "bg")    ? a:style.bg.gui   : "NONE")
-    \ "guisp="   (has_key(a:style, "sp")    ? a:style.sp.gui   : "NONE")
-    \ "gui="     (has_key(a:style, "gui")   ? a:style.gui      : "NONE")
+    \ "guifg=NONE guibg=NONE guisp=NONE gui=NONE"
     \ "ctermfg=" (has_key(a:style, "fg")    ? a:style.fg.cterm : "NONE")
     \ "ctermbg=" (has_key(a:style, "bg")    ? a:style.bg.cterm : "NONE")
     \ "cterm="   (has_key(a:style, "cterm") ? a:style.cterm    : "NONE")
 endfunction
 
-" common groups ================================================================
-" (see `:h w18`)
-
 call s:h("Normal",        {"bg": s:bg, "fg": s:norm})
 call s:h("Cursor",        {"bg": s:light, "fg": s:norm })
-call s:h("Comment",       {"fg": s:medium_gray, "gui": "italic"})
-
-
-" ui chrome ====================================================================
-" ordered according to `:help hitest.vim`
+call s:h("Comment",       {"fg": s:medium_gray})
 
 call s:h("SpecialKey",    {"fg": s:light})
 call s:h("NonText",       {"fg": s:medium_gray})
@@ -74,7 +63,7 @@ call s:h("Directory",     {"fg": s:dark})
 call s:h("ErrorMsg",      {"fg": s:light})
 call s:h("IncSearch",     {"bg": s:light, "fg": s:dark})
 call s:h("Search",        {"bg": s:bg_subtle})
-call s:h("MoreMsg",       {"fg": s:medium_gray, "cterm": "bold", "gui": "bold"})
+call s:h("MoreMsg",       {"fg": s:medium_gray, "cterm": "bold"})
 hi! link ModeMsg MoreMsg
 call s:h("LineNr",        {"fg": s:bg_subtle})
 call s:h("CursorLineNr",  {"fg": s:light, "bg": s:bg_very_subtle})
@@ -95,21 +84,20 @@ call s:h("DiffChange",    {"fg": s:dark})
 call s:h("DiffText",      {"fg": s:dark})
 call s:h("SignColumn",    {"fg": s:light})
 " hi Conceal
-call s:h("SpellBad",    {"cterm": "underline", "fg": s:red})
-call s:h("SpellCap",    {"cterm": "underline", "fg": s:light})
-call s:h("SpellRare",   {"cterm": "underline", "fg": s:light})
-call s:h("SpellLocal",  {"cterm": "underline", "fg": s:dark})
+call s:h("SpellBad",      {"cterm": "underline", "fg": s:red})
+call s:h("SpellCap",      {"cterm": "underline", "fg": s:light})
+call s:h("SpellRare",     {"cterm": "underline", "fg": s:light})
+call s:h("SpellLocal",    {"cterm": "underline", "fg": s:dark})
 call s:h("Pmenu",         {"fg": s:norm, "bg": s:bg_subtle})
 call s:h("PmenuSel",      {"fg": s:norm, "bg": s:light})
 call s:h("PmenuSbar",     {"fg": s:norm, "bg": s:bg_subtle})
 call s:h("PmenuThumb",    {"fg": s:norm, "bg": s:bg_subtle})
 call s:h("TabLine",       {"fg": s:norm, "bg": s:bg_very_subtle})
-call s:h("TabLineSel",    {"fg": s:light, "bg": s:bg_subtle, "gui": "bold", "cterm": "bold"})
+call s:h("TabLineSel",    {"fg": s:light, "bg": s:bg_subtle, "cterm": "bold"})
 call s:h("TabLineFill",   {"fg": s:norm, "bg": s:bg_very_subtle})
 call s:h("CursorColumn",  {"bg": s:bg_very_subtle})
 call s:h("CursorLine",    {"bg": s:bg_very_subtle})
 call s:h("ColorColumn",   {"bg": s:bg_subtle})
 
-" remainder of syntax highlighting
 call s:h("MatchParen",    {"bg": s:bg_subtle, "fg": s:norm})
 call s:h("qfLineNr",      {"fg": s:medium_gray})
