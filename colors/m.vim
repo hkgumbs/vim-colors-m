@@ -27,23 +27,15 @@ let s:light           = { "cterm": "7"   }
 let s:dark            = { "cterm": "8"   }
 let s:white           = { "cterm": "15"  }
 
-let s:medium_gray     = { "cterm": "243" }
-let s:actual_white    = { "cterm": "231" }
-let s:lighter_black   = { "cterm": "240" }
-let s:subtle_black  = { "cterm": "236" }
-let s:light_gray    = { "cterm": "249" }
-let s:lighter_gray  = { "cterm": "251" }
-let s:light_blue      = { "cterm": "153" }
-
 let s:bg              = s:white
-let s:bg_subtle       = s:light_gray
-let s:bg_very_subtle  = s:lighter_gray
+let s:bg_subtle       = s:light
+let s:bg_very_subtle  = s:light
 let s:norm            = s:dark
-let s:norm_subtle     = s:lighter_black
+let s:norm_subtle     = s:light
 let s:cyan            = s:dark
 let s:green           = s:dark
 let s:red             = s:dark
-let s:visual          = s:light_blue
+let s:visual          = s:light
 
 function! s:h(group, style)
   execute "highlight" a:group
@@ -55,28 +47,28 @@ endfunction
 
 call s:h("Normal",        {"bg": s:bg, "fg": s:norm})
 call s:h("Cursor",        {"bg": s:light, "fg": s:norm })
-call s:h("Comment",       {"fg": s:medium_gray})
+call s:h("Comment",       {"fg": s:light})
 
 call s:h("SpecialKey",    {"fg": s:light})
-call s:h("NonText",       {"fg": s:medium_gray})
+call s:h("NonText",       {"fg": s:light})
 call s:h("Directory",     {"fg": s:dark})
 call s:h("ErrorMsg",      {"fg": s:light})
 call s:h("IncSearch",     {"bg": s:light, "fg": s:dark})
 call s:h("Search",        {"bg": s:bg_subtle})
-call s:h("MoreMsg",       {"fg": s:medium_gray, "cterm": "bold"})
+call s:h("MoreMsg",       {"fg": s:light, "cterm": "bold"})
 hi! link ModeMsg MoreMsg
 call s:h("LineNr",        {"fg": s:bg_subtle})
 call s:h("CursorLineNr",  {"fg": s:light, "bg": s:bg_very_subtle})
 call s:h("Question",      {"fg": s:red})
 call s:h("StatusLine",    {"bg": s:bg_very_subtle})
-call s:h("StatusLineNC",  {"bg": s:bg_very_subtle, "fg": s:medium_gray})
+call s:h("StatusLineNC",  {"bg": s:bg_very_subtle, "fg": s:light})
 call s:h("VertSplit",     {"bg": s:bg_very_subtle, "fg": s:bg_very_subtle})
 call s:h("Title",         {"fg": s:dark})
 call s:h("Visual",        {"bg": s:visual})
 call s:h("VisualNOS",     {"bg": s:bg_subtle})
 call s:h("WarningMsg",    {"fg": s:red})
 call s:h("WildMenu",      {"fg": s:bg, "bg": s:norm})
-call s:h("Folded",        {"fg": s:medium_gray})
+call s:h("Folded",        {"fg": s:light})
 call s:h("FoldColumn",    {"fg": s:bg_subtle})
 call s:h("DiffAdd",       {"fg": s:green})
 call s:h("DiffDelete",    {"fg": s:red})
@@ -100,4 +92,4 @@ call s:h("CursorLine",    {"bg": s:bg_very_subtle})
 call s:h("ColorColumn",   {"bg": s:bg_subtle})
 
 call s:h("MatchParen",    {"bg": s:bg_subtle, "fg": s:norm})
-call s:h("qfLineNr",      {"fg": s:medium_gray})
+call s:h("qfLineNr",      {"fg": s:light})
