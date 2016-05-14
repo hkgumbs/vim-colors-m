@@ -27,7 +27,7 @@ endfunction
 
 call s:h("ColorColumn",   { "bg": s:light })
 call s:h("Comment",       { "fg": s:light })
-call s:h("Constant",      { "fg": s:black })
+call s:h("Constant",      { "fg": s:dark })
 call s:h("CursorLineNr",  { "fg": s:light, "bg": s:light })
 call s:h("ErrorMsg",      { "fg": s:light })
 call s:h("FoldColumn",    { "fg": s:light })
