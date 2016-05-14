@@ -35,6 +35,7 @@ call s:h("Folded",        { "fg": s:light })
 call s:h("IncSearch",     { "fg": s:dark, "bg": s:light })
 call s:h("LineNr",        { "fg": s:light })
 call s:h("MatchParen",    { "fg": s:dark, "bg": s:light })
+call s:h("ModeMsg",       { "fg": s:light, "cterm": "bold"})
 call s:h("MoreMsg",       { "fg": s:light, "cterm": "bold"})
 call s:h("NonText",       { "fg": s:light })
 call s:h("Normal",        { "fg": s:dark, "bg": s:white })
@@ -63,5 +64,3 @@ call s:h("VisualNOS",     { "bg": s:light })
 call s:h("WarningMsg",    { "fg": s:light })
 call s:h("WildMenu",      { "fg": s:white, "bg": s:dark, "cterm": "bold" })
 call s:h("qfLineNr",      { "fg": s:light })
-
-hi! link ModeMsg MoreMsg
