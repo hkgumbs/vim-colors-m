@@ -31,6 +31,5 @@ Just like any other color scheme:
 
 ## Font
 
-iA Writer uses a typeface called ‘Nitti Light’ by Blue Monday, which costs
-money.
-I use [Cousine](http://www.google.com/fonts/specimen/Cousine).
+iA Writer uses a typeface called ‘Nitti Light’ by Blue Monday, which costs money.
+I use [Cousine](http://www.google.com/fonts/specimen/Cousine), which does not.
