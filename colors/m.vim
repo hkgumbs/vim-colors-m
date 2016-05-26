@@ -7,7 +7,7 @@
 hi clear
 
 if exists('syntax on')
-    syntax reset
+  syntax reset
 endif
 
 let g:colors_name='m'
@@ -40,18 +40,18 @@ call s:h("ModeMsg",       { "fg": s:light, "cterm": "bold"})
 call s:h("MoreMsg",       { "fg": s:light, "cterm": "bold"})
 call s:h("NonText",       { "fg": s:light })
 call s:h("Normal",        { "fg": s:dark, "bg": s:white })
-call s:h("Pmenu",         { "fg": s:dark, "bg": s:white })
-call s:h("PmenuSbar",     { "fg": s:dark, "bg": s:white })
-call s:h("PmenuSel",      { "fg": s:dark, "bg": s:white })
-call s:h("PmenuThumb",    { "fg": s:dark, "bg": s:white })
+call s:h("Pmenu",         { "fg": s:dark, "bg": s:light })
+call s:h("PmenuSbar",     { "bg": s:light })
+call s:h("PmenuSel",      { "fg": s:white, "bg": s:dark })
+call s:h("PmenuThumb",    { "bg": s:dark })
 call s:h("Question",      { "fg": s:dark })
-call s:h("Search",        { "bg": s:light })
+call s:h("Search",        { "fg": s:dark, "bg": s:light })
 call s:h("SignColumn",    { "fg": s:light })
 call s:h("SpecialKey",    { "fg": s:light })
-call s:h("SpellBad",      { "cterm": "underline" })
-call s:h("SpellCap",      { "cterm": "underline" })
-call s:h("SpellLocal",    { "cterm": "underline" })
-call s:h("SpellRare",     { "cterm": "underline" })
+call s:h("SpellBad",      { "fg": s:white, "bg": s:dark })
+call s:h("SpellCap",      { "fg": s:white, "bg": s:dark })
+call s:h("SpellLocal",    { "fg": s:white, "bg": s:dark })
+call s:h("SpellRare",     { "fg": s:white, "bg": s:dark })
 call s:h("Statement",     { "fg": s:dark })
 call s:h("StatusLine",    { "bg": s:light, "cterm": "bold" })
 call s:h("StatusLineNC",  { "bg": s:light })
