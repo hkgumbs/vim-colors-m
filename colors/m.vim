@@ -12,14 +12,18 @@ endif
 
 let g:colors_name='m'
 
-let s:black             = { "cterm": "0"  }
-let s:light             = { "cterm": "7"  }
-let s:dark              = { "cterm": "8"  }
-let s:white             = { "cterm": "15" }
+let s:cursor            = { "gui": "#20BBFC", "cterm": "0"  }
+let s:black             = { "gui": "#666666", "cterm": "0"  }
+let s:light             = { "gui": "#BFBFBF", "cterm": "7"  }
+let s:dark              = { "gui": "#424242", "cterm": "8"  }
+let s:white             = { "gui": "#F5F6F6", "cterm": "15" }
 
 function! s:h(group, style)
   execute "highlight" a:group
-    \ "guifg=NONE guibg=NONE guisp=NONE gui=NONE"
+    \ "guifg="   (has_key(a:style, "fg")    ? a:style.fg.gui   : "NONE")
+    \ "guibg="   (has_key(a:style, "bg")    ? a:style.bg.gui   : "NONE")
+    \ "guisp="   (has_key(a:style, "sp")    ? a:style.sp.gui   : "NONE")
+    \ "gui="     (has_key(a:style, "gui")   ? a:style.gui      : "NONE")
     \ "ctermfg=" (has_key(a:style, "fg")    ? a:style.fg.cterm : "NONE")
     \ "ctermbg=" (has_key(a:style, "bg")    ? a:style.bg.cterm : "NONE")
     \ "cterm="   (has_key(a:style, "cterm") ? a:style.cterm    : "NONE")
@@ -28,6 +32,7 @@ endfunction
 call s:h("ColorColumn",   { "bg": s:light })
 call s:h("Comment",       { "fg": s:light })
 call s:h("Constant",      { "fg": s:dark })
+call s:h("Cursor",        { "bg": s:cursor, "fg": s:dark })
 call s:h("CursorLine",    { "bg": s:light })
 call s:h("CursorLineNr",  { "fg": s:light, "bg": s:light })
 call s:h("ErrorMsg",      { "fg": s:light })
